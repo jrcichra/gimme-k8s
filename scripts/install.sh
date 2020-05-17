@@ -54,7 +54,7 @@ fi
 
 # Create a cluster
 log "Creating a single node Kubernetes cluster inside a docker container..."
-kind create cluster --name gimme-k8s --config yaml/kind.yaml
+./kind create cluster --name gimme-k8s --config yaml/kind.yaml
 # Apply Metallb (from their installation guide)
 log "Installing the LoadBalancer (MetalLB)..."
 ./kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/${METALLB_VERSION}/manifests/namespace.yaml
