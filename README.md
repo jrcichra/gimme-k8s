@@ -1,9 +1,8 @@
 # gimme-k8s
-3 lines away from a k8s cluster (using KinD)
+2 lines away from a k8s cluster (using KinD)
 
 ## Install
-+ `git clone https://github.com/jrcichra/gimme-k8s`
-+ `cd gimme-k8s`
++ `git clone https://github.com/jrcichra/gimme-k8s && cd gimme-k8s`
 + `make`
 
 [![asciicast](https://asciinema.org/a/ZxN0026uhyQYPUopBN1tbfrRH.svg)](https://asciinema.org/a/ZxN0026uhyQYPUopBN1tbfrRH)
