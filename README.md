@@ -1,7 +1,7 @@
 # gimme-k8s
-Try out Kubernetes with just a docker installation (uses KinD)
+3 lines away from a k8s cluster (using KinD)
 
-## Usage
+## Install
 + `git clone https://github.com/jrcichra/gimme-k8s`
 + `cd gimme-k8s`
 + `make`
@@ -17,3 +17,7 @@ This repo will get you a KinD cluster running a Kubernetes dashboard you can exp
 You can use ./kubectl to control your cluster
 
 This line will move it into a place where you can execute it from anywhere - `sudo cp ./kubectl /usr/local/bin`
+
+## Uninstall
+`make uninstall`
+`rm -r gimme-k8s/`
