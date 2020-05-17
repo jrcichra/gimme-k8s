@@ -61,7 +61,24 @@ log "Installing the LoadBalancer (MetalLB)..."
 ./kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/${METALLB_VERSION}/manifests/metallb.yaml
 ./kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 # Apply a configmap that gives some address space on (bridge)
-./kubectl apply -f yaml/metallb-configmap.yaml 
+KIND_CIDR=$(docker network inspect kind | jq -j -r '.[0].IPAM.Config[0].Subnet')
+KIND_NET_PREFIX=$(echo "${KIND_CIDR}" | sed 's@/.*@@g' | sed 's@\.0\.0@@g')
+METALLB_ADDRESSES="${KIND_NET_PREFIX}.255.1-${KIND_NET_PREFIX}.255.250"
+METALLB_CONFIGMAP="
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses: 
+      - ${METALLB_ADDRESSES}
+"
+echo "$METALLB_CONFIGMAP" | ./kubectl apply -f -
 # Load a customized version of the Kubernetes dashboard with wide-open permissions and LoadBalancer
 log "Installing the dashboard..."
 ./kubectl apply -f yaml/dashboard.yaml
