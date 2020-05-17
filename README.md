@@ -19,5 +19,5 @@ You can use ./kubectl to control your cluster
 This line will move it into a place where you can execute it from anywhere - `sudo cp ./kubectl /usr/local/bin`
 
 ## Uninstall
-`make uninstall`
-`rm -r gimme-k8s/`
++ `make uninstall`
++ (If you want no reminents) `rm -r gimme-k8s/`
