@@ -2,6 +2,11 @@
 Try out Kubernetes with just a docker installation (uses KinD)
 
 ## Usage
++ `git clone https://github.com/jrcichra/gimme-k8s`
++ `cd gimme-k8s`
++ `make`
+
+[![asciicast](https://asciinema.org/a/ZxN0026uhyQYPUopBN1tbfrRH.svg)](https://asciinema.org/a/ZxN0026uhyQYPUopBN1tbfrRH)
 Software you need for this project:
 + Docker
 + Bash shell for scripts
